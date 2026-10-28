@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aman Saini | WordPress & Shopify Developer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+</svg>
+
+<header class="nav">
+  <a href="#home" class="logo">Aman<span>.</span></a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <nav id="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-sm">Hire Me</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero container">
+    <div class="hero-text reveal">
+      <span class="pill"><i class="dot"></i>Hi, I'm</span>
+      <h1>Aman <span class="grad">Saini</span></h1>
+      <h2>WordPress &amp; Shopify <br><span class="grad">Developer</span></h2>
+      <p class="lead">I build modern websites and online stores that help businesses grow online. Clean code, creative design and user-friendly experience.</p>
+      <div class="actions">
+        <a href="#projects" class="btn">View My Projects →</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+
+      <p class="follow">Follow me</p>
+      <div class="hero-social">
+        <a href="https://github.com/your-id" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/aman-saini10/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+        <a href="https://www.facebook.com/amansaini.saini.1069" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i"><use href="#i-facebook"/></svg></a>
+      </div>
+    </div>
+
+    <div class="hero-img reveal">
+      <div class="stage">
+        <span class="orb o1"></span><span class="orb o2"></span>
+
+        <!-- Storefront mockup -->
+        <div class="browser">
+          <div class="br-top">
+            <i class="d r"></i><i class="d y"></i><i class="d g"></i>
+            <span class="url"><svg class="i"><use href="#i-lock"/></svg>yourstore.com</span>
+          </div>
+          <div class="br-body">
+            <div class="shop-nav"><b></b><span></span><span></span><span></span><em></em></div>
+            <div class="shop-hero">
+              <div>
+                <h5>New Collection</h5>
+                <p>Up to 40% off this season</p>
+                <span class="sh-btn">Shop Now</span>
+              </div>
+              <div class="sh-art"></div>
+            </div>
+            <div class="shop-grid">
+              <div class="prod"><div class="pimg p1"></div><span></span><b></b></div>
+              <div class="prod"><div class="pimg p2"></div><span></span><b></b></div>
+              <div class="prod"><div class="pimg p3"></div><span></span><b></b></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big logo badges -->
+        <div class="logo-badge lb1">
+          <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify logo" onerror="this.outerHTML='<b style=&quot;color:#95bf47;font-size:2rem&quot;>S</b>'">
+        </div>
+        <div class="logo-badge lb2">
+          <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo" onerror="this.outerHTML='<b style=&quot;color:#21759b;font-size:2rem&quot;>W</b>'">
+        </div>
+
+        <!-- Floating info cards with live count-up animation -->
+        <div class="fcard fc1">
+          <img class="fi-img" src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify logo">
+          
+        </div>
+        <div class="fcard fc2">
+          <img class="fi-img" src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo">
+          
+        </div>
+        <div class="fcard fc3"><svg class="i"><use href="#i-check"/></svg>Responsive</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS WITH COUNT-UP -->
+  <section class="container stats reveal">
+    <div>
+      <i class="si"><svg class="i"><use href="#i-clock"/></svg></i>
+      <b data-count="2" data-suf="+">0</b>
+      <span>Years Experience</span>
+    </div>
+    <div>
+      <i class="si"><svg class="i"><use href="#i-layers"/></svg></i>
+      <b data-count="10" data-suf="+">0</b>
+      <span>Projects Completed</span>
+    </div>
+    <div>
+      <i class="si"><svg class="i"><use href="#i-briefcase"/></svg></i>
+      <b data-count="10" data-suf="+">0</b>
+      <span>Happy Clients</span>
+    </div>
+    <div>
+      <i class="si"><svg class="i"><use href="#i-heart"/></svg></i>
+      <b data-count="92" data-suf="%">0</b>
+      <span>Satisfaction</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="container about">
+    <div class="about-text reveal">
+      <p class="tag small">● MY INTRODUCTION</p>
+      <h3 class="title">About <span class="grad">Me</span></h3>
+      
+      <p class="lead">
+        Hi! I'm <strong>Aman Saini</strong>, a dedicated WordPress &amp; Shopify Developer based in India with over 2 years of hands-on experience in building fast, secure, and revenue-driven web solutions.
+      </p>
+      
+      <p class="about-desc">
+        My expertise lies at the intersection of clean custom coding and modern e-commerce architecture. Whether creating lightweight custom WordPress themes from scratch, configuring high-converting WooCommerce stores, or engineering custom Shopify Liquid sections with seamless Ajax functionalities — I bridge the gap between aesthetic design and technical performance.
+      </p>
+
+      <p class="about-desc">
+        I prioritize writing scalable code without reliance on bloated plugins or slow page-builder scripts. Every store and site I develop is rigorously tested for cross-device responsiveness, mobile-first UX, Core Web Vitals, and 90+ Google PageSpeed benchmarks to maximize conversion rates and search rankings.
+      </p>
+
+      <div class="about-highlights">
+        <span class="badge">✓ Clean &amp; Modular Code</span>
+        <span class="badge">✓ Conversion Rate Focused</span>
+        <span class="badge">✓ PageSpeed Score</span>
+      </div>
+
+      <a href="#contact" class="btn">Let's Work Together →</a>
+    </div>
+
+    <!-- WHAT I DO (WORDPRESS + SHOPIFY COMBINED) -->
+    <div class="about-card reveal">
+      <h4 class="ac-title">What I Do</h4>
+      <ul class="checklist">
+       
+
+        <!-- Shopify Skills -->
+        <li><svg class="i"><use href="#i-check"/></svg>Shopify 2.0 Theme Development &amp; Liquid Customization</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Custom Shopify Sections, Mega Menus &amp; Storefront UI</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Ajax Cart Drawer, Product Variants &amp; Quick-Buy Flows</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Shopify App Integration, Automation &amp; Page Builders</li>
+  <!-- WordPress Skills -->
+        <li><svg class="i"><use href="#i-check"/></svg>WordPress Custom Theme &amp; Plugin Customization</li>
+        <li><svg class="i"><use href="#i-check"/></svg>WooCommerce Store Setup, Checkout &amp; Payment Gateways</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Elementor, Divi &amp; Gutenberg Block Customization</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Custom Post Types, ACF (Advanced Custom Fields) &amp; Shortcodes</li>
+        <li><svg class="i"><use href="#i-check"/></svg>WordPress Security  Backup &amp; Bug Fixing</li>
+        <!-- Optimization & Core -->
+        <li><svg class="i"><use href="#i-check"/></svg>Speed Optimization  &amp; Core Web Vitals</li>
+        <li><svg class="i"><use href="#i-check"/></svg>100% Mobile Responsive &amp; Cross-Browser Compatibility</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="container">
+    <h3 class="title">My Skills &amp; <span class="grad">Tech Stack</span></h3>
+    <p class="sub">Technologies I work with to build amazing websites and web applications.</p>
+    <div class="tiles">
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5 logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#e44d26&quot;>5</b>'"><span>HTML5</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="CSS3 logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#2965f1&quot;>3</b>'"><span>CSS3</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="JavaScript logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#f7df1e&quot;>JS</b>'"><span>JavaScript</span></div>
+      <div class="tile reveal"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#21759b&quot;>W</b>'"><span>WordPress</span></div>
+      <div class="tile reveal"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#95bf47&quot;>S</b>'"><span>Shopify</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/php/php-original.svg" alt="PHP logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#777bb4&quot;>php</b>'"><span>PHP</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#00758f&quot;>SQL</b>'"><span>MySQL</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="Git &amp; GitHub logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#f05033&quot;>Git</b>'"><span>Git &amp; GitHub</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="Figma logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#a259ff&quot;>F</b>'"><span>Figma</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#007acc&quot;>VS</b>'"><span>VS Code</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="React logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#61dafb&quot;>R</b>'"><span>React</span></div>
+      <div class="tile reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap logo" loading="lazy" onerror="this.outerHTML='<b style=&quot;--c:#7952b3&quot;>B</b>'"><span>Bootstrap</span></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="container">
+    <h3 class="title">My <span class="grad">Services</span></h3>
+    <p class="sub">What I can do for you.</p>
+    <div class="grid4">
+      <article class="card reveal">
+        <div class="ico"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo" loading="lazy"></div>
+        <h4>WordPress Development</h4>
+        <p>Custom themes, WooCommerce, plugins, speed and security optimization.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify logo" loading="lazy"></div>
+        <h4>Shopify Development</h4>
+        <p>Store setup, Liquid customization, apps integration, product &amp; checkout setup.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="Figma logo" loading="lazy"></div>
+        <h4>Web Design</h4>
+        <p>Modern responsive design with clean UI/UX, mobile-first layouts and branding.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg class="i"><use href="#i-tool"/></svg></div>
+        <h4>Website Maintenance</h4>
+        <p>Speed boosts, malware cleanup, regular updates, bug fixes and support.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="container">
+    <div class="head-row">
+      <div>
+        <h3 class="title">Featured <span class="grad">Projects</span></h3>
+        <p class="sub">Some of my recent work and client projects.</p>
+      </div>
+      <a href="#" class="viewall">View All Projects →</a>
+    </div>
+    <div class="filters">
+      <button class="active" data-f="all">All</button>
+      <button data-f="wordpress">WordPress</button>
+      <button data-f="shopify">Shopify</button>
+      <button data-f="design">Web Design</button>
+    </div>
+    <div class="grid3" id="projectGrid">
+      <article class="card project reveal" data-c="shopify">
+        <div class="thumb t1">Shopify Store</div>
+        <h4>Shopify E-Commerce Store</h4>
+        <small class="ptag">E-COMMERCE</small>
+        <p>Modern e-commerce store with custom Liquid sections, ajax cart and smooth UX.</p>
+        <a href="#">View Project →</a>
+      </article>
+      <article class="card project reveal" data-c="wordpress">
+        <div class="thumb t2">WordPress Site</div>
+        <h4>WordPress Business Site</h4>
+        <small class="ptag">WEBSITE</small>
+        <p>Professional business website built with custom WordPress blocks and fast loading.</p>
+        <a href="#">View Project →</a>
+      </article>
+      <article class="card project reveal" data-c="design">
+        <div class="thumb t3">My Portfolio</div>
+        <h4>Portfolio Website</h4>
+        <small class="ptag">PERSONAL</small>
+        <p>Personal portfolio with modern interactive UI, smooth animations, and clean code.</p>
+        <a href="#">View Project →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container contact reveal">
+    <p class="tag small">● LET'S CONNECT</p>
+    <h3 class="title">Get In <span class="grad">Touch</span></h3>
+    <p class="sub">Have a project in mind? Let's talk about it.</p>
+
+    <div class="contact-grid">
+      <!-- LEFT SIDE -->
+      <div class="contact-left">
+        <div class="info">
+          <a href="mailto:amansaini2974@gmail.com">
+            <span><svg class="i"><use href="#i-mail"/></svg></span>
+            <div><small>Email</small>amansaini2974@gmail.com</div>
+          </a>
+          <div class="infobox">
+            <span><svg class="i"><use href="#i-pin"/></svg></span>
+            <div><small>Location</small>India</div>
+          </div>
+        </div>
+
+        <p class="follow">Connect with me</p>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/aman-saini10/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg><em>LinkedIn</em></a>
+          <a href="https://www.facebook.com/amansaini.saini.1069" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i"><use href="#i-facebook"/></svg><em>Facebook</em></a>
+          <a href="https://github.com/your-id" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg><em>GitHub</em></a>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <form id="contactForm" class="form" novalidate>
+        <div class="two">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <select name="service" required>
+          <option value="" disabled selected>Select a Service</option>
+          <option>WordPress Development</option>
+          <option>Shopify Development</option>
+          <option>Web Design</option>
+          <option>Website Maintenance</option>
+          <option>Other</option>
+        </select>
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message →</button>
+        <p id="formMsg" class="formmsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="logo">Aman<span>.</span></span>
+  <small>© <span id="year"></span> Aman Saini. All rights reserved.</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
