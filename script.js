@@ -1,5 +1,6 @@
 // ========== CONFIG ==========
 const RECEIVER_EMAIL = 'rohitsaini941145@gmail.com';
+const WEB3FORMS_KEY = 'be30f73d-c773-4476-9dc1-008a5b1e8c2f';
 
 // ========== 1. MOBILE MENU ==========
 const burger = document.getElementById('burger');
@@ -58,7 +59,9 @@ buttons.forEach(btn => btn.addEventListener('click', () => {
 
 // ========== 6. CONTACT FORM (FormSubmit) ==========
 
-// ========== 6. CONTACT FORM (FormSubmit) ==========
+
+   
+    // ========== 6. CONTACT FORM (Web3Forms) ==========
 const form = document.getElementById('contactForm');
 const msg = document.getElementById('formMsg');
 if (form) {
@@ -85,30 +88,26 @@ if (form) {
     msg.textContent = 'Sending your message...';
 
     try {
-      const fd = new FormData();
-      fd.append('Name', d.name);
-      fd.append('Email', d.email);
-      fd.append('Service', d.service);
-      fd.append('Subject', d.subject || 'Portfolio Inquiry');
-      fd.append('Message', d.message);
-      fd.append('Page', location.href);
-      fd.append('Time', new Date().toLocaleString('en-IN'));
-      fd.append('_replyto', d.email);
-      fd.append('_subject', `New Portfolio Inquiry: ${d.name} (${d.service})`);
-      fd.append('_autoresponse', `Hi ${d.name}, thanks for contacting me! I received your message about "${d.service}" and will reply within 24 hours. - Aman Saini`);
-      fd.append('_captcha', 'false');
-      fd.append('_template', 'table');
-
-      // No Content-Type header here, so the browser sends a simple request (no CORS preflight)
-      const res = await fetch('https://formsubmit.co/ajax/' + RECEIVER_EMAIL, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New Portfolio Inquiry: ${d.name} (${d.service})`,
+          from_name: 'Aman Portfolio',
+          name: d.name,
+          email: d.email,
+          service: d.service,
+          topic: d.subject || 'Portfolio Inquiry',
+          message: d.message,
+          page: location.href,
+          time: new Date().toLocaleString('en-IN')
+        })
       });
       const data = await res.json().catch(() => ({}));
-      console.log('FormSubmit:', res.status, data);
+      console.log('Web3Forms:', res.status, data);
 
-      if (res.ok && String(data.success) === 'true') {
+      if (res.ok && data.success) {
         msg.textContent = '✓ Thanks! Your message has been sent successfully.';
         msg.classList.add('ok');
         form.reset();
@@ -125,6 +124,8 @@ if (form) {
     }
   });
 }
+    
+     
 
 // ===== animations.js =====
 (function () {
