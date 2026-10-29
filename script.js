@@ -1,3 +1,6 @@
+// ========== CONFIG ==========
+const RECEIVER_EMAIL = 'rohitsaini941145@gmail.com';
+
 // ========== 1. MOBILE MENU ==========
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
@@ -62,33 +65,50 @@ if (form) {
     const btn = form.querySelector('button[type="submit"]');
     const d = Object.fromEntries(new FormData(form));
     msg.className = 'formmsg';
+
     if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || !d.service || !d.message.trim()) {
       msg.textContent = 'Please fill name, a valid email, service and message.';
       msg.classList.add('err');
       return;
     }
+    if (d._honey) return; // bot spam
+
     btn.disabled = true;
-    btn.textContent = 'Sending Message...';
+    btn.textContent = 'Sending...';
     msg.textContent = 'Sending your message...';
+
     try {
-      const res = await fetch('https://formsubmit.co/ajax/amansaini2974@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/' + RECEIVER_EMAIL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          Name: d.name, Email: d.email, Service: d.service,
-          Subject: d.subject || 'Portfolio Inquiry', Message: d.message,
-          _subject: `Portfolio Contact: ${d.name} (${d.service})`,
-          _captcha: 'false', _template: 'table'
+          Name: d.name,
+          Email: d.email,
+          Service: d.service,
+          Subject: d.subject || 'Portfolio Inquiry',
+          Message: d.message,
+          Page: location.href,
+          Time: new Date().toLocaleString('en-IN'),
+          _replyto: d.email,
+          _subject: `New Portfolio Inquiry: ${d.name} (${d.service})`,
+          _autoresponse: `Hi ${d.name}, thanks for contacting me! I received your message about "${d.service}" and will reply within 24 hours. - Aman Saini`,
+          _captcha: 'false',
+          _template: 'table'
         })
       });
-      const data = await res.json();
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      console.log('FormSubmit:', res.status, data);
+
+      if (res.ok && String(data.success) === 'true') {
         msg.textContent = '✓ Thanks! Your message has been sent successfully.';
         msg.classList.add('ok');
         form.reset();
-      } else throw new Error(data.message || 'Error occurred');
+      } else {
+        throw new Error(data.message || 'Server error');
+      }
     } catch (err) {
-      msg.textContent = 'Failed to send message. Please try again.';
+      console.error(err);
+      msg.textContent = 'Failed: ' + (err.message || 'please try again') + ' — or email me directly at ' + RECEIVER_EMAIL;
       msg.classList.add('err');
     } finally {
       btn.disabled = false;
@@ -97,7 +117,7 @@ if (form) {
   });
 }
 
-// ===== animations.js — script.js ke BAAD load karein =====
+// ===== animations.js =====
 (function () {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, c = document) => c.querySelector(s);
@@ -136,7 +156,7 @@ if (form) {
     });
   }
 
-  // 3. Typing effect on hero title (Developer -> Designer -> ...)
+  // 3. Typing effect on hero title
   const target = $('.hero h2 .grad');
   if (target && !reduce) {
     const words = ['Developer', 'Store Builder', 'Problem Solver'];
@@ -154,7 +174,7 @@ if (form) {
     setTimeout(tick, 2500);
   }
 
-  // 4. Stagger reveal inside grids (hover lag na ho isliye delay baad mein hata dete hain)
+  // 4. Stagger reveal inside grids
   $$('.tiles,.grid4,.grid3,.stats').forEach(g => {
     $$('.reveal', g).forEach((el, i) => {
       el.style.transitionDelay = i * 90 + 'ms';
