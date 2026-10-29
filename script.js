@@ -57,6 +57,8 @@ buttons.forEach(btn => btn.addEventListener('click', () => {
 }));
 
 // ========== 6. CONTACT FORM (FormSubmit) ==========
+
+// ========== 6. CONTACT FORM (FormSubmit) ==========
 const form = document.getElementById('contactForm');
 const msg = document.getElementById('formMsg');
 if (form) {
@@ -66,8 +68,13 @@ if (form) {
     const d = Object.fromEntries(new FormData(form));
     msg.className = 'formmsg';
 
-    if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || !d.service || !d.message.trim()) {
-      msg.textContent = 'Please fill name, a valid email, service and message.';
+    let problem = '';
+    if (!d.name.trim()) problem = 'Please enter your name.';
+    else if (!/^\S+@\S+\.\S+$/.test(d.email)) problem = 'Please enter a valid email.';
+    else if (!d.service) problem = 'Please select a service.';
+    else if (!d.message.trim()) problem = 'Please write your message.';
+    if (problem) {
+      msg.textContent = problem;
       msg.classList.add('err');
       return;
     }
@@ -78,23 +85,25 @@ if (form) {
     msg.textContent = 'Sending your message...';
 
     try {
+      const fd = new FormData();
+      fd.append('Name', d.name);
+      fd.append('Email', d.email);
+      fd.append('Service', d.service);
+      fd.append('Subject', d.subject || 'Portfolio Inquiry');
+      fd.append('Message', d.message);
+      fd.append('Page', location.href);
+      fd.append('Time', new Date().toLocaleString('en-IN'));
+      fd.append('_replyto', d.email);
+      fd.append('_subject', `New Portfolio Inquiry: ${d.name} (${d.service})`);
+      fd.append('_autoresponse', `Hi ${d.name}, thanks for contacting me! I received your message about "${d.service}" and will reply within 24 hours. - Aman Saini`);
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+
+      // No Content-Type header here, so the browser sends a simple request (no CORS preflight)
       const res = await fetch('https://formsubmit.co/ajax/' + RECEIVER_EMAIL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          Name: d.name,
-          Email: d.email,
-          Service: d.service,
-          Subject: d.subject || 'Portfolio Inquiry',
-          Message: d.message,
-          Page: location.href,
-          Time: new Date().toLocaleString('en-IN'),
-          _replyto: d.email,
-          _subject: `New Portfolio Inquiry: ${d.name} (${d.service})`,
-          _autoresponse: `Hi ${d.name}, thanks for contacting me! I received your message about "${d.service}" and will reply within 24 hours. - Aman Saini`,
-          _captcha: 'false',
-          _template: 'table'
-        })
+        headers: { 'Accept': 'application/json' },
+        body: fd
       });
       const data = await res.json().catch(() => ({}));
       console.log('FormSubmit:', res.status, data);
