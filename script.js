@@ -35,7 +35,7 @@ function countUp(el) {
   requestAnimationFrame(step);
 }
 
-// ========== 4. SCROLL REVEAL ==========
+// ========== 4. SCROLL REVEAL (faster: triggers earlier) ==========
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -44,8 +44,25 @@ const io = new IntersectionObserver(entries => {
     if (e.target.matches('[data-count]')) countUp(e.target);
     io.unobserve(e.target);
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.05, rootMargin: '0px 0px 200px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ========== 4b. PROJECT IMAGES: PREFETCH IN BACKGROUND ==========
+// Page load hone ke baad saari project images background me download ho jaati hain,
+// taaki scroll karte hi turant dikhein.
+function prefetchProjectImages() {
+  document.querySelectorAll('.project .thumb img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (!src) return;
+    const pre = new Image();
+    pre.decoding = 'async';
+    pre.src = src;
+  });
+}
+window.addEventListener('load', () => {
+  if ('requestIdleCallback' in window) requestIdleCallback(prefetchProjectImages, { timeout: 1500 });
+  else setTimeout(prefetchProjectImages, 300);
+});
 
 // ========== 5. PROJECT FILTERS ==========
 const buttons = document.querySelectorAll('.filters button');
@@ -57,11 +74,7 @@ buttons.forEach(btn => btn.addEventListener('click', () => {
   projects.forEach(p => p.classList.toggle('hide', f !== 'all' && p.dataset.c !== f));
 }));
 
-// ========== 6. CONTACT FORM (FormSubmit) ==========
-
-
-   
-    // ========== 6. CONTACT FORM (Web3Forms) ==========
+// ========== 6. CONTACT FORM (Web3Forms) ==========
 const form = document.getElementById('contactForm');
 const msg = document.getElementById('formMsg');
 if (form) {
@@ -124,8 +137,6 @@ if (form) {
     }
   });
 }
-    
-     
 
 // ===== animations.js =====
 (function () {
@@ -184,11 +195,11 @@ if (form) {
     setTimeout(tick, 2500);
   }
 
-  // 4. Stagger reveal inside grids
+  // 4. Stagger reveal inside grids (faster delay)
   $$('.tiles,.grid4,.grid3,.stats').forEach(g => {
     $$('.reveal', g).forEach((el, i) => {
-      el.style.transitionDelay = i * 90 + 'ms';
-      setTimeout(() => (el.style.transitionDelay = ''), 2500 + i * 90);
+      el.style.transitionDelay = i * 50 + 'ms';
+      setTimeout(() => (el.style.transitionDelay = ''), 1500 + i * 50);
     });
   });
 
@@ -219,7 +230,7 @@ if (form) {
     if (!img) return;
     const fail = () => t.classList.add('noimg');
     img.addEventListener('error', fail);
-    if (img.complete && img.naturalWidth === 0) fail();
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('loading') !== 'lazy') fail();
     t.addEventListener('click', () => {
       if (t.classList.contains('noimg')) return;
       lbImg.src = img.src; lbImg.alt = img.alt;
