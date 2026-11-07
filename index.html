@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aman Saini | WordPress & Shopify Developer</title>
+
+<!-- SPEED: faster connection to icon CDNs -->
+<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+<!-- SPEED: preload first project images -->
+<link rel="preload" as="image" href="poonami-shopify.png" fetchpriority="high">
+<link rel="preload" as="image" href="poonami-shopify1.png">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -207,43 +216,45 @@
     </div>
 
     <div class="grid3" id="projectGrid">
+      <!-- First 3 images: NO lazy loading (load immediately) -->
       <article class="card project reveal" data-c="shopify">
-        <div class="thumb"><img src="poonami-shopify.png" alt="Poonami Shopify Store" loading="lazy"></div>
+        <div class="thumb"><img src="poonami-shopify.png" alt="Poonami Shopify Store" decoding="async" fetchpriority="high"></div>
         <h4>Shopify Store – Project 1</h4>
         <small class="ptag">E-COMMERCE</small>
         <p>Modern e-commerce store with custom Liquid sections, ajax cart and smooth UX.</p>
         <a href="#">View Project →</a>
       </article>
       <article class="card project reveal" data-c="shopify">
-        <div class="thumb"><img src="poonami-shopify1.png" alt="Poonami Shopify Store" loading="lazy"></div>
+        <div class="thumb"><img src="poonami-shopify1.png" alt="Poonami Shopify Store" decoding="async" fetchpriority="high"></div>
         <h4>Shopify Store – Project 2</h4>
         <small class="ptag">E-COMMERCE</small>
         <p>Modern e-commerce store with custom Liquid sections, ajax cart and smooth UX.</p>
         <a href="#">View Project →</a>
       </article>
       <article class="card project reveal" data-c="shopify">
-        <div class="thumb"><img src="poonami-shopify2.png" alt="Poonami Shopify Store" loading="lazy"></div>
+        <div class="thumb"><img src="poonami-shopify2.png" alt="Poonami Shopify Store" decoding="async"></div>
         <h4>Shopify Store – Project 3</h4>
         <small class="ptag">E-COMMERCE</small>
         <p>Modern e-commerce store with custom Liquid sections, ajax cart and smooth UX.</p>
         <a href="#">View Project →</a>
       </article>
+      <!-- Remaining images: lazy, but script.js prefetches them in background -->
       <article class="card project reveal" data-c="shopify">
-        <div class="thumb"><img src="poonami-shopify3.png" alt="Poonami Shopify Store" loading="lazy"></div>
+        <div class="thumb"><img src="poonami-shopify3.png" alt="Poonami Shopify Store" loading="lazy" decoding="async"></div>
         <h4>Shopify Store – Project 4</h4>
         <small class="ptag">E-COMMERCE</small>
         <p>Modern e-commerce store with custom Liquid sections, ajax cart and smooth UX.</p>
         <a href="#">View Project →</a>
       </article>
       <article class="card project reveal" data-c="wordpress">
-        <div class="thumb"><img src="wordpress.png" alt="WordPress Website" loading="lazy"></div>
+        <div class="thumb"><img src="wordpress.png" alt="WordPress Website" loading="lazy" decoding="async"></div>
         <h4>WordPress Website</h4>
         <small class="ptag">WEBSITE</small>
         <p>Professional website built with custom WordPress features and fast loading.</p>
         <a href="#">View Project →</a>
       </article>
       <article class="card project reveal" data-c="design">
-        <div class="thumb"><img src="portfolio.png" alt="Aman Portfolio Website" loading="lazy"></div>
+        <div class="thumb"><img src="portfolio.png" alt="Aman Portfolio Website" loading="lazy" decoding="async"></div>
         <h4>Portfolio Website</h4>
         <small class="ptag">PERSONAL</small>
         <p>Personal portfolio with modern interactive UI, smooth animations, and clean code.</p>
@@ -263,7 +274,7 @@
         <div class="info">
           <a href="mailto:rohitsaini941145@gmail.com">
             <span><svg class="i"><use href="#i-mail"/></svg></span>
-            <div><small>Email</small>rohitsaini941145@gmail.com</div>
+            <div><small>Email</small>amansaini2974@gmail.com</div>
           </a>
           <div class="infobox">
             <span><svg class="i"><use href="#i-pin"/></svg></span>
@@ -307,6 +318,6 @@
   <small>© <span id="year"></span> Aman Saini. All rights reserved.</small>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
